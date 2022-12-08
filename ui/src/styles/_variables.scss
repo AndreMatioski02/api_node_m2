@@ -1,0 +1,16 @@
+$footer-gray: #363435;
+$font-gray-darker: #272727;
+$petshop-blue: #43AEA8;
+$petshop-blue-darker: #00726c;
+$petshop-blue-light: #ecffff;
+$petshop-orange: #d17a35;
+$petshop-orange-light: #ff933a;
+$bg-gray: #e8e8e8;
+
+@mixin centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

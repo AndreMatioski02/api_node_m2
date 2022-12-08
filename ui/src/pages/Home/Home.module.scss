@@ -1,0 +1,51 @@
+@import "styles/variables";
+
+.mainContainer {
+	@include centered();
+	align-items: flex-start;
+	width: 100%;
+	height: 100vh;
+	background-image: url("../../assets/home/homeBg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	.homeText {
+		@include centered();
+		width: 40%;
+		height: 20%;
+		border-left: 4px solid white;
+		color: white;
+		align-items: flex-start;
+		padding-left: 24px;
+		margin-left: 128px;
+		text-align: left;
+		h1 {
+			font-size: 3rem;
+			margin: 0;
+		}
+		h2 {
+			color: $petshop-blue;
+		}
+	}
+	.startBtn {
+		@include centered();
+		width: 40%;
+		height: 20%;
+		color: white;
+		align-items: flex-start;
+		margin-left: 128px;
+		button {
+			width: 50%;
+			padding: 24px;
+			background-color: transparent;
+			color: white;
+			border: 2px solid white;
+			border-radius: 8px;
+			transition: 240ms ease-in-out;
+			cursor: pointer;
+			&:hover {
+				background-color: $petshop-blue;
+				border: 2px solid $petshop-blue;
+			}
+		}
+	}
+}

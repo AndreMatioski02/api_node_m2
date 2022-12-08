@@ -1,0 +1,9 @@
+@import "styles/variables";
+
+.footer {
+	@include centered();
+	width: 100%;
+	height: 100%;
+	background-color: $footer-gray;
+	color: white;
+}

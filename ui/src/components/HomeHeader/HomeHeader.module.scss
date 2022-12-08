@@ -1,0 +1,57 @@
+@import "styles/variables";
+
+.navContainer {
+	@include centered();
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-evenly;
+	height: 15vh;
+	padding: 15px;
+	background-color: $petshop-blue;
+	.petshopLogo {
+		width: 250px;
+		cursor: pointer;
+	}
+	.navButton {
+		width: 15%;
+		padding: 15px;
+		background-color: transparent;
+		border: 3px solid $petshop-blue;
+		outline: none;
+		font-size: 1.3rem;
+		color: white;
+		transition: 180ms ease-in-out;
+		cursor: pointer;
+		&:hover {
+			border-bottom: 3px solid white;
+		}
+	}
+	
+}
+
+@media screen and (max-width: 1024px) {
+	.navContainer {
+		a {
+			.navButton {
+				font-size: 1rem;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.navContainer {
+		flex-direction: column;
+		height: 100%;
+		.petshopLogo {
+			width: 150px;
+			margin: 3% auto;
+		}
+		a {
+			width: 80%;
+			.navButton {
+				margin: 1% auto;
+			}
+		}
+	}
+}
