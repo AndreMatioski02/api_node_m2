@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,900&display=swap');
+
+body {
+  background-color: #e8e8e8;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Quicksand', serif;
+  font-weight: 700;
+}
+
+#root > main.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0B5854;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #43AEA8;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #be6d0a;
+}
