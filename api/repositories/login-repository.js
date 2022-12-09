@@ -1,10 +1,9 @@
-// Definindo os 'imports'
 const repBase = require('../bin/base/repository-base')
 const firebase = require('../db')
 const firestore = firebase.firestore()
 const md5 = require('md5')
 
-class userRepository {
+class loginRepository {
   constructor() {
     this._repBase = new repBase('user', 'users')
   }
@@ -27,4 +26,4 @@ class userRepository {
   }
 }
 
-module.exports = userRepository
+module.exports = loginRepository
