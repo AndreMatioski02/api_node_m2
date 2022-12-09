@@ -10,6 +10,7 @@ import ProfessionalForm from "pages/Professionals/ProfessionalForm";
 import ClientForm from "pages/Clients/ClientForm";
 import AnimalForm from "pages/Animals/AnimalForm";
 import ServiceForm from "pages/Services/ServiceForm";
+import Login from "pages/Login";
 
 export default function AppRouter() {
 	return (
@@ -18,6 +19,7 @@ export default function AppRouter() {
 				<Routes>
 					<Route path="/" element={<StandardPage />}>
 						<Route path="/home" element={<Home />} />
+						<Route path="/login" element={<Login />} />
 						<Route path="/crud" element={<CrudHub />} />
 						<Route path="/crud/professionals" element={<Professionals />} />
 						<Route path="/crud/clients" element={<Clients />} />

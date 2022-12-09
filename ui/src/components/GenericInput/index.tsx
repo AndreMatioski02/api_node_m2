@@ -4,15 +4,20 @@ interface iGenericInputProps {
     type: string;
     onChange: (e: any) => void;
     value: string;
+    label?: string;
 }
 
-export default function GenericInput({type, onChange, value}: iGenericInputProps) {
+export default function GenericInput({type, onChange, value, label}: iGenericInputProps) {
     return(
-        <input 
-            type={type}
-            className={styles.genInput}
-            onChange={onChange}
-            value={value}
-        />
+        <div className={styles.genInputContainer}>
+            <label htmlFor={label}>{label}</label>
+            <input 
+                type={type}
+                className={styles.genInput}
+                onChange={onChange}
+                value={value}
+                name={label}
+            />
+        </div>
     );
 }

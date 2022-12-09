@@ -1,0 +1,43 @@
+@import "styles/variables";
+
+.mainContainer {
+    @include centered();
+    width: 100%;
+    height: 100%;
+    .loginTitleContainer {
+        @include centered();
+        width: 35%;
+        margin-top: 5%;
+        align-items: flex-start;
+        background-color: $petshop-blue-darker;
+        color: white;
+        padding-left: 32px;
+    }
+    .loginContainer {
+        @include centered();
+        justify-content: flex-start;
+        width: 35%;
+        height: 50vh;
+        background-color: white;
+        padding: 32px;
+        h3 {
+            align-self: flex-start;
+            margin-top: 5%;
+            margin-bottom: 10%;
+            border-left: 4px solid $petshop-blue-darker;
+            padding-left: 8px;
+        }
+        .loginBtn {
+            width: 100%;
+            padding: 24px;
+            background-color: $petshop-blue;
+            color: white;
+            border: none;
+            transition: 140ms ease-in-out;
+            cursor: pointer;
+            &:hover {
+                background-color: $petshop-blue-darker;
+            }
+        }
+    }
+}
