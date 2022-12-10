@@ -1,8 +1,8 @@
 import { useState } from "react";
 import GenericInput from "components/GenericInput";
-import styles from "./ProfessionalForm.module.scss";
+import styles from "./EmployeeForm.module.scss";
 
-export default function ProfessionalForm() {
+export default function EmployeeForm() {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
 

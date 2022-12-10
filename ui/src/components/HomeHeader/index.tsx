@@ -18,7 +18,7 @@ export default function HomeHeader() {
 				alt="Petshop Logo" 
 			/>
 			<button onClick={() => navigateTo("/crud")} className={styles.navButton}>Hub</button>
-			<button onClick={() => navigateTo("/crud/professionals")} className={styles.navButton}>Profissionais</button>
+			<button onClick={() => navigateTo("/crud/employees")} className={styles.navButton}>Profissionais</button>
 			<button onClick={() => navigateTo("/crud/clients")} className={styles.navButton}>Clientes</button>
 			<button onClick={() => navigateTo("/crud/animals")} className={styles.navButton}>Animais</button>
 			<button onClick={() => navigateTo("/crud/services")} className={styles.navButton}>Serviços</button>

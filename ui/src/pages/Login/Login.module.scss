@@ -23,8 +23,15 @@
         h3 {
             align-self: flex-start;
             margin-top: 5%;
-            margin-bottom: 10%;
             border-left: 4px solid $petshop-blue-darker;
+            padding-left: 8px;
+        }
+        h4 {
+            align-self: flex-start;
+            color: red;
+            margin: 0;
+            margin-bottom: 5%;
+            border-left: 4px solid red;
             padding-left: 8px;
         }
         .loginBtn {

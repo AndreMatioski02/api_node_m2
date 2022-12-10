@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import styles from "./StandardPage.module.scss";
-import { useEffect } from "react";
 import HomeHeader from "components/HomeHeader";
 import HomeFooter from "components/HomeFooter";
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function StandardPage() {
 	const location = useLocation();
