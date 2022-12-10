@@ -1,0 +1,20 @@
+@import "styles/variables";
+
+.animalSelectContainer {
+    @include centered();
+    align-items: flex-start;
+    width: 100%;
+    .animalSelect {
+        width: 100%;
+        padding: 12px;
+        outline: none;
+        margin-top: 8px;
+        margin-bottom: 32px;
+        border: 2px solid $petshop-blue-darker;
+        border-radius: 8px;
+        transition: 180ms ease-in-out;
+        &:focus {
+            box-shadow: 0 0 6px $petshop-blue;
+        }
+    }
+}

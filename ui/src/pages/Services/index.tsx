@@ -5,6 +5,8 @@ import CrudTitle from "components/CrudTitle";
 import styles from "./Services.module.scss";
 import loading from "../../assets/crud/loading-gif.gif";
 import { useFetchData } from "services/useFetchData";
+import { iService } from "types/models";
+import { useDeleteData } from "services/useDeleteData";
 
 export default function Services() {
 	const navigate = useNavigate();
@@ -22,12 +24,17 @@ export default function Services() {
 			useFetchData("services").then(res => { setCrudData(res.data) });
 		}
     }, [token]);
+	
+	const handleDeleteDoc = (id: string) => {
+		useDeleteData("services", id);
+		window.location.reload();
+	}
 
 	return (
 		<section className={styles.mainContainer}>
 			<CrudTitle>Serviços Oferecidos</CrudTitle>
 			<div className={styles.btnContainer}>
-                <button onClick={() => navigate("/crud/employees/form")} className={styles.newItemBtn}>+ Novo</button>
+                <button onClick={() => navigate("/crud/services/form")} className={styles.newItemBtn}>+ Novo</button>
             </div>
 			<table cellSpacing={0} cellPadding={0} className={styles.crudTable}>
                 <thead className={styles.crudHeader}>
@@ -42,7 +49,7 @@ export default function Services() {
                 </thead>
                 <tbody className={styles.crudBody}>
                     {crudData && crudData.length > 0 ?
-                        crudData.map((service: any, index: React.Key) => (
+                        crudData.map((service: iService, index: React.Key) => (
                             <tr className={styles.crudRow} key={index}>
                                 <td>{service.id}</td>
                                 <td>{service.name}</td>
@@ -54,7 +61,7 @@ export default function Services() {
                                     <button className={styles.editBtn}>Editar</button>
                                 </td>
                                 <td>
-                                    <button className={styles.deleteBtn}>Excluir</button>
+                                    <button className={styles.deleteBtn} onClick={() => handleDeleteDoc(service.id)}>Excluir</button>
                                 </td>
                             </tr>
                         ))

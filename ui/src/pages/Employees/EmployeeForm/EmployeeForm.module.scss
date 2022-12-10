@@ -1,1 +1,35 @@
 @import "styles/variables";
+
+.formContainer {
+    @include centered();
+    width: 40%;
+    margin: 5% 0;
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    .form {
+        @include centered();
+        width: 100%;
+        .formTitle {
+            @include centered();
+            align-items: flex-start;
+            background-color: $petshop-blue-darker;
+            width: 100%;
+            color: white;
+            padding-left: 16px;
+            margin-bottom: 5%;
+        }
+        .submitBtn {
+            width: 100%;
+            padding: 24px;
+            background-color: $petshop-blue;
+            color: white;
+            border: none;
+            transition: 140ms ease-in-out;
+            cursor: pointer;
+            &:hover {
+                background-color: $petshop-blue-darker;
+            }
+        }
+    }
+}

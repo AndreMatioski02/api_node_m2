@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import styles from "./Animals.module.scss";
+import { iAnimal } from "types/models";
 import CrudTitle from "components/CrudTitle";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchData } from "services/useFetchData";
 import loading from "../../assets/crud/loading-gif.gif";
+import { checkAndFormatDate } from "services/checkAndFormatDate";
+import { useDeleteData } from "services/useDeleteData";
 
 export default function Animals() {
 	const navigate = useNavigate();
@@ -22,6 +25,11 @@ export default function Animals() {
 			useFetchData("animals").then(res => { setCrudData(res.data) });
 		}
     }, [token]);
+
+	const handleDeleteDoc = (id: string) => {
+		useDeleteData("animals", id);
+		window.location.reload();
+	}
 
 	return (
 		<section className={styles.mainContainer}>
@@ -42,19 +50,19 @@ export default function Animals() {
                 </thead>
                 <tbody className={styles.crudBody}>
                     {crudData && crudData.length > 0 ?
-                        crudData.map((animal: any, index: React.Key) => (
+                        crudData.map((animal: iAnimal, index: React.Key) => (
                             <tr className={styles.crudRow} key={index}>
                                 <td>{animal.id}</td>
                                 <td>{animal.name}</td>
                                 <td>{animal.clientName}</td>
                                 <td>{animal.breed}</td>
                                 <td>{animal.genre}</td>
-                                <td>{animal.birthDate}</td>
+                                <td>{checkAndFormatDate(animal.birthDate)}</td>
                                 <td>
                                     <button className={styles.editBtn}>Editar</button>
                                 </td>
                                 <td>
-                                    <button className={styles.deleteBtn}>Excluir</button>
+                                    <button className={styles.deleteBtn} onClick={() => handleDeleteDoc(animal.id)}>Excluir</button>
                                 </td>
                             </tr>
                         ))

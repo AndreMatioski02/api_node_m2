@@ -5,6 +5,9 @@ import styles from "./Employees.module.scss";
 import CrudTitle from "components/CrudTitle";
 import { useFetchData } from "services/useFetchData";
 import loading from "../../assets/crud/loading-gif.gif";
+import { iEmployee } from "types/models";
+import { checkAndFormatDate } from "services/checkAndFormatDate";
+import { useDeleteData } from "services/useDeleteData";
 
 export default function Employees() {
 	const navigate = useNavigate();
@@ -22,6 +25,11 @@ export default function Employees() {
 			useFetchData("employees").then(res => { setCrudData(res.data) });
 		}
     }, [token]);
+
+	const handleDeleteDoc = (id: string) => {
+		useDeleteData("employees", id);
+		window.location.reload();
+	}
 
 	return (
 		<section className={styles.mainContainer}>
@@ -44,13 +52,13 @@ export default function Employees() {
                 </thead>
                 <tbody className={styles.crudBody}>
                     {crudData && crudData.length > 0 ?
-                        crudData.map((employee: any, index: React.Key) => (
+                        crudData.map((employee: iEmployee, index: React.Key) => (
                             <tr className={styles.crudRow} key={index}>
                                 <td>{employee.id}</td>
                                 <td>{employee.fullName}</td>
                                 <td>{employee.email}</td>
 								<td>{employee.expertise}</td>
-                                <td>{employee.birthDate}</td>
+                                <td>{checkAndFormatDate(employee.birthDate)}</td>
                                 <td>{employee.genre}</td>
                                 <td>{employee.city}</td>
                                 <td>{employee.state}</td>
@@ -58,7 +66,7 @@ export default function Employees() {
                                     <button className={styles.editBtn}>Editar</button>
                                 </td>
                                 <td>
-                                    <button className={styles.deleteBtn}>Excluir</button>
+                                    <button className={styles.deleteBtn} onClick={() => handleDeleteDoc(employee.id)}>Excluir</button>
                                 </td>
                             </tr>
                         ))
