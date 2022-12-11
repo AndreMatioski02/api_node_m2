@@ -2,13 +2,14 @@
 
 .formContainer {
     @include centered();
-    width: 40%;
-    background-color: white;
-    border-radius: 8px;
-    padding: 16px;
+    width: 100%;
     .form {
         @include centered();
-        width: 100%;
+        width: 40%;
+        background-color: white;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 5%;
         .formTitle {
             @include centered();
             align-items: flex-start;
@@ -17,6 +18,14 @@
             color: white;
             padding-left: 16px;
             margin-bottom: 5%;
+        }
+        h4 {
+            align-self: flex-start;
+            color: red;
+            margin: 0;
+            margin-bottom: 5%;
+            border-left: 4px solid red;
+            padding-left: 8px;
         }
         .submitBtn {
             width: 100%;

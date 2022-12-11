@@ -58,7 +58,7 @@ export default function Services() {
                                 <td>{service.animalName}</td>
                                 <td>{service.clientName}</td>
                                 <td>
-                                    <button className={styles.editBtn}>Editar</button>
+                                    <button className={styles.editBtn} onClick={() => navigate("/crud/services/form", { state: { docId: service.id }})}>Editar</button>
                                 </td>
                                 <td>
                                     <button className={styles.deleteBtn} onClick={() => handleDeleteDoc(service.id)}>Excluir</button>

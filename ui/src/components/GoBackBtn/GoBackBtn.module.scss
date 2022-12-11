@@ -1,0 +1,23 @@
+@import "styles/variables";
+
+.backBtnContainer {
+    @include centered();
+    align-items: flex-start;
+    padding-left: 32px;
+    margin-top: 2%;
+    width: 100%;
+    .backBtn {
+        width: 160px;
+        align-self: flex-start;
+        padding: 16px;
+        border-radius: 8px;
+        background-color: transparent;
+        border: 2px solid $petshop-blue-darker;
+        transition: 120ms ease-in-out;
+        cursor: pointer;
+        &:hover {
+            background-color: $petshop-blue-darker;
+            color: white;
+        }
+    }
+}

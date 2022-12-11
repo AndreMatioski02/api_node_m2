@@ -61,7 +61,7 @@ export default function Clients() {
                                 <td>{client.city}</td>
                                 <td>{client.state}</td>
                                 <td>
-                                    <button className={styles.editBtn}>Editar</button>
+                                    <button className={styles.editBtn} onClick={() => navigate("/crud/clients/form", { state: { docId: client.id }})}>Editar</button>
                                 </td>
                                 <td>
                                     <button className={styles.deleteBtn} onClick={() => handleDeleteDoc(client.id)}>Excluir</button>

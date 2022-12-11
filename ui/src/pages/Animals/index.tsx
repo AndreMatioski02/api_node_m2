@@ -59,7 +59,8 @@ export default function Animals() {
                                 <td>{animal.genre}</td>
                                 <td>{checkAndFormatDate(animal.birthDate)}</td>
                                 <td>
-                                    <button className={styles.editBtn}>Editar</button>
+                                    <button 
+										className={styles.editBtn} onClick={() => navigate("/crud/animals/form", { state: { docId: animal.id }})}>Editar</button>
                                 </td>
                                 <td>
                                     <button className={styles.deleteBtn} onClick={() => handleDeleteDoc(animal.id)}>Excluir</button>

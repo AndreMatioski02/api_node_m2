@@ -63,7 +63,7 @@ export default function Employees() {
                                 <td>{employee.city}</td>
                                 <td>{employee.state}</td>
                                 <td>
-                                    <button className={styles.editBtn}>Editar</button>
+                                    <button className={styles.editBtn} onClick={() => navigate("/crud/employees/form", { state: { docId: employee.id }})}>Editar</button>
                                 </td>
                                 <td>
                                     <button className={styles.deleteBtn} onClick={() => handleDeleteDoc(employee.id)}>Excluir</button>
