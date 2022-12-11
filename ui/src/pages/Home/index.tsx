@@ -11,7 +11,7 @@ export default function Home() {
 				<h2>Aqui você encontra os principais serviços de Petshop oferecidos na região</h2>
 			</div>
 			<div className={styles.startBtn}>
-				<button onClick={() => navigate("/crud")}>Começar</button>
+				<button onClick={() => navigate("/login")}>Começar</button>
 			</div>
 		</section>
 	);

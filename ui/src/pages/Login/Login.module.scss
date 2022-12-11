@@ -1,23 +1,30 @@
 @import "styles/variables";
 
-.formContainer {
+.mainContainer {
     @include centered();
     width: 100%;
-    .form {
+    height: 100%;
+    .loginTitleContainer {
         @include centered();
-        width: 40%;
+        width: 35%;
+        margin-top: 5%;
+        align-items: flex-start;
+        background-color: $petshop-blue-darker;
+        color: white;
+        padding-left: 32px;
+    }
+    .loginContainer {
+        @include centered();
+        justify-content: flex-start;
+        width: 35%;
+        height: 50vh;
         background-color: white;
-        border-radius: 8px;
-        padding: 16px;
-        margin-bottom: 5%;
-        .formTitle {
-            @include centered();
-            align-items: flex-start;
-            background-color: $petshop-blue-darker;
-            width: 100%;
-            color: white;
-            padding-left: 16px;
-            margin-bottom: 5%;
+        padding: 32px;
+        h3 {
+            align-self: flex-start;
+            margin-top: 5%;
+            border-left: 4px solid $petshop-blue-darker;
+            padding-left: 8px;
         }
         h4 {
             align-self: flex-start;
@@ -27,7 +34,7 @@
             border-left: 4px solid red;
             padding-left: 8px;
         }
-        .submitBtn {
+        .loginBtn {
             width: 100%;
             padding: 24px;
             background-color: $petshop-blue;

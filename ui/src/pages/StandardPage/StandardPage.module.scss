@@ -1,8 +1,7 @@
 @import 'styles/variables';
 
 .mainContainer {
-	display: flex;
-	flex-direction: column;
+	@include centered();
 	width: 100%;
 	min-height: 100vh;
 	background-color: $bg-gray;

@@ -1,10 +1,10 @@
 @import "styles/variables";
 
-.genInputContainer {
+.personSelectContainer {
     @include centered();
     align-items: flex-start;
     width: 100%;
-    .genInput {
+    .personSelect {
         width: 100%;
         padding: 12px;
         outline: none;

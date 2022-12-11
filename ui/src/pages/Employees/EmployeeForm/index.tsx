@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
-import styles from "./ClientForm.module.scss";
 import GenericInput from "components/GenericInput";
+import styles from "./EmployeeForm.module.scss";
 import GenderSelect from "components/GenderSelect";
 import { usePostData } from "services/usePostData";
 import { useFetchDataById } from "services/useFetchDataById";
@@ -19,6 +19,7 @@ export default function ClientForm() {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [birthDate, setBirthDate] = useState("");
+    const [expertise, setExpertise] = useState("");
     const [genre, setGenre] = useState("");
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
@@ -27,23 +28,25 @@ export default function ClientForm() {
     useEffect(() => {
         if(location.state) {
             const locationState = location.state as docIdState;
-            useFetchDataById("clients", locationState.docId)
+            useFetchDataById("employees", locationState.docId)
                 .then(res => {
                     setFullName(res.data.fullName);
                     setEmail(res.data.email);
                     setBirthDate(res.data.birthDate);
+                    setExpertise(res.data.expertise);
                     setGenre(res.data.genre);
                     setCity(res.data.city);
                     setState(res.data.state);
                 });
         }
     }, []);
-    
+
     const fieldValidity = () => {
         if(
             !fullName ||
             !email ||
             !birthDate ||
+            !expertise ||
             !genre ||
             !city ||
             !state
@@ -58,7 +61,7 @@ export default function ClientForm() {
 
     return(
         <div className={styles.formContainer}>
-            <GoBackBtn route="clients" />
+            <GoBackBtn route="employees" />
             <form 
                 className={styles.form}
                 onSubmit={(e) => {
@@ -67,32 +70,34 @@ export default function ClientForm() {
                         return;
                     }
                     if(!location.state) {
-                        usePostData("clients", {
+                        usePostData("employees", {
                             fullName,
                             email,
                             birthDate,
+                            expertise,
                             genre,
                             city,
                             state
                         });
-                        toast.success('Cliente cadastrado com sucesso!', { toastId: "client-post-sc"});
+                        toast.success('Profissional cadastrado com sucesso!', { toastId: "employee-post-sc"});
                     } else {
                         const locationState = location.state as docIdState;
-                        usePutData("clients", {
+                        usePutData("employees", {
                             fullName,
                             email,
                             birthDate,
+                            expertise,
                             genre,
                             city,
                             state
                         }, locationState.docId)
-                        toast.success('Cliente alterado com sucesso!', { toastId: "client-put-sc"});
+                        toast.success('Profissional alterado com sucesso!', { toastId: "employee-put-sc"});
                     }
-                    navigate("/crud/clients");
+                    navigate("/crud/employees");
                 }}
             >
                 <div className={styles.formTitle}>
-                    <h2>{location.state ? "Edição" : "Cadastro"} de Cliente</h2>
+                    <h2>{location.state ? "Edição" : "Cadastro"} de Profissional</h2>
                 </div>
                 <h4 style={{ display: !errorActive ? "none" : "flex" }}>
                     Por favor, preencha todos os campos antes de enviar!
@@ -114,6 +119,12 @@ export default function ClientForm() {
                     onChange={(e) => setBirthDate(e.currentTarget.value)}
                     value={birthDate}
                     label="Data de Nascimento"
+                />
+                <GenericInput 
+                    type="text"
+                    onChange={(e) => setExpertise(e.currentTarget.value)}
+                    value={expertise}
+                    label="Especialidade"
                 />
                 <GenderSelect
                     onChange={(e) => setGenre(e.target.value)}

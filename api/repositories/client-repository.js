@@ -15,7 +15,6 @@ class clientRepository {
 
   async update(id, data) {
     return await this._repBase.update(id, {
-      id: data.id,
       fullName: data.fullName,
       email: data.email,
       birthDate: data.birthDate,

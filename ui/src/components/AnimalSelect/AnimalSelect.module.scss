@@ -1,10 +1,10 @@
 @import "styles/variables";
 
-.genInputContainer {
+.animalSelectContainer {
     @include centered();
     align-items: flex-start;
     width: 100%;
-    .genInput {
+    .animalSelect {
         width: 100%;
         padding: 12px;
         outline: none;
