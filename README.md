@@ -22,7 +22,7 @@ Em seu terminal, clone o projeto com `git clone https://github.com/AndreMatioski
 
 - Repita o procedimento acima para as pastas "ui" e "chatbot"
 
-**Atenção: Para rodar tanto a API quanto o front-end, utilize `npm start`. Para rodar o chatbot, utilize `node index.js`**
+**Atenção: Para rodar tanto a API quanto o front-end, utilize `npm start`. Para rodar o chatbot, utilize `node index.js`. É preciso rodar ambos ao mesmo tempo para que os métodos funcionem corretamente.**
 
 # API
 
@@ -48,7 +48,7 @@ As rotas do CRUD são acessíveis apenas se o usuário estiver logado. Tal login
 
 O chatbot, com base no Telegram/Telegraf, permite a criação e armazenamento em sessão de uma lista de compras para o petshop. Proporciona, também, um teclado virtual, caso não seja possível utilizar o físico.
 
-Também, em conexão e consumo da API, o chatbot é capaz de listar os profissionais, animais, clientes e serviços cadastrados na API, utilizando o método GET.
+Também, em conexão e consumo da API, o chatbot é capaz de listar os profissionais cadastrados na API, utilizando o método GET.
 
 # Documentação base do React (Create React App)
 
