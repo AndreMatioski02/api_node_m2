@@ -1,8 +1,56 @@
-# api_node_m2
-
 # Petshop - Pet Care, website desenvolvido para o trabalho interdisciplinar de M2! - 2022/2
 
-# Getting Started with Create React App
+## Componentes
+
+Este projeto é composto por:
+
+- Uma SPA com React (front-end);
+
+- Uma API com Node.js e Firebase (back-end);
+
+- Um chatbot com base no Telegram/Telegraf.
+
+## Instalação / Configuração
+
+Em seu terminal, clone o projeto com `git clone https://github.com/AndreMatioski02/api_node_m2.git`
+
+- Acesse a pasta "api" com o comando `cd api`, e instale suas dependências com `npm i`
+
+- Por padrão, a API irá rodar na URL [http://localhost:3001](http://localhost:3001)
+
+- Retorne à pasta raíz com o comando `cd ..`
+
+- Repita o procedimento acima para as pastas "ui" e "chatbot"
+
+**Atenção: Para rodar tanto a API quanto o front-end, utilize `npm start`. Para rodar o chatbot, utilize `node index.js`**
+
+# API
+
+A API, desenvolvida em Node.js e com armazenamento no Firebase, faz referência a um petshop, nomeado Pet Care. Este possui, no momento, 4 models, sendo eles:
+
+- Employees ([http://localhost:3001/api/employees](http://localhost:3000/api/employees));
+
+- Animals ([http://localhost:3001/api/animals](http://localhost:3000/api/animals));
+
+- Clients ([http://localhost:3001/api/clients](http://localhost:3000/api/clients));
+
+- Services ([http://localhost:3001/api/services](http://localhost:3000/api/services)).
+
+Todos estes models possuem dados cadastrados no banco Firebase, e podem ser alterados por meio dos métodos HTTP desenvolvidos na API. A mesma conta, também, com autenticação via token JWT, e criptografia básica de senha de usuário.
+
+# Front-end
+
+O front-end, desenvolvido em React + TS, permite ao usuário efetuar seu login, e então, acessar o CRUD. O CRUD do petshop conta com a atualização e utilização, em tempo real, dos métodos HTTP da API.
+
+As rotas do CRUD são acessíveis apenas se o usuário estiver logado. Tal login, após efetuado, salva o token JWT no Local Storage, permitindo que as rotas do CRUD verifiquem se o mesmo existe, habilitando ou não as opções para o usuário.
+
+# Chatbot
+
+O chatbot, com base no Telegram/Telegraf, permite a criação e armazenamento em sessão de uma lista de compras para o petshop. Proporciona, também, um teclado virtual, caso não seja possível utilizar o físico.
+
+Também, em conexão e consumo da API, o chatbot é capaz de listar os profissionais, animais, clientes e serviços cadastrados na API, utilizando o método GET.
+
+# Documentação base do React (Create React App)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -17,11 +65,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
